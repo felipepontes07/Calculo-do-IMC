@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cálculo do IMC</title>
+    <style>
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cálculo do IMC</h1>
+    <form>
+      <label>Informe a sua altura em metros:</label>
+      <input type="text" id="altura"><br>
+      <label>Informe o seu peso em quilogramas:</label>
+      <input type="text" id="peso"><br>
+      <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+      function calcularIMC() {
+        let altura = parseFloat(document.getElementById("altura").value);
+        let peso = parseFloat(document.getElementById("peso").value);
+        let imc = peso / (altura * altura);
+        var resultado = document.getElementById("resultado");
+        resultado.innerHTML = "<p>Seu IMC é: " + imc.toFixed(2) ;
+        if (imc < 18) {
+          resultado.innerHTML += "Voc/ê est/á abaixo do peso ideal.</p>";
+        } else if (imc <= 25) {
+          resultado.innerHTML += "Seu peso está dentro do ideal.</p>";
+        } else {
+          resultado.innerHTML += "Voc/ê est/á acima do peso ideal.</p>";
+        }
+      }
+    </script>
+  </body>
+</html>
